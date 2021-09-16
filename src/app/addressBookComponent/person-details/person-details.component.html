@@ -1,0 +1,54 @@
+<body>
+    <header class="header-content header">
+      <div class="logo-content">
+        <img
+          src="../assets/icons/addressBook.png"
+          alt="logo"
+        />
+        <div>
+          <span class="addressBook-text">Address</span><br />
+          <span class="addressBook-text addressBook-book">Book</span>
+        </div>
+      </div>
+    </header>
+
+        <div class="main-header-content">
+            <div class="addressbook-detail-text">
+                Person Details <div class="contact-count">3</div>
+            </div>
+            <a class="add-button">
+                <img  [routerLink]="['']" routerLinkActive="router-link-active" src="../assets/icons/add-24px.svg"  >Back
+          
+            </a>
+        </div>
+
+
+    <div class="main-content">
+        <div class="table-main">
+            <table id="table-display" class="table table-stripped">
+                <thead>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>ZipCode</th>
+                  
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let person of  persons">
+                        <td>{{person.person_id}}</td>
+                        <td>{{person.name}}</td>
+                        <td>{{person.phone_no}}</td>
+                        <td>{{person.address}}</td>
+                        <td>{{person.city}}</td>
+                        <td>{{person.state}}</td>
+                        <td>{{person.zip_code}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+  </body>

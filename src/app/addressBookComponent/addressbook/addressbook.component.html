@@ -1,0 +1,62 @@
+  <body>
+    <header class="header-content header">
+      <div class="logo-content">
+        <img
+          src="../assets/icons/addressBook.png"
+          alt="logo"
+        />
+        <div>
+          <span class="addressBook-text">Address</span><br />
+          <span class="addressBook-text addressBook-book">Book</span>
+        </div>
+      </div>
+    </header>
+    
+        <div class="main-header-content">
+            <div class="addressbook-detail-text">
+                Person Details <div class="contact-count">3</div>
+            </div>
+            <div class="form-inline">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search"  [(ngModel)]="searchName"aria-label="Search" >
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"(click)= onSearch()>Search</button>
+            </div>
+            <a class="add-button">
+                <img  [routerLink]="['/add']" routerLinkActive="router-link-active" src="../assets/icons/add-24px.svg"  >Add Person
+          
+            </a>
+        </div>
+   
+
+    <div class="main-content">
+        <div class="table-main">
+            <table id="table-display" class="table table-stripped">
+                <thead>
+                    <th>Id</th>
+                    <th (click) = onSortbyName()>Name</th>
+                    <th>Phone</th>
+                    <th (click) = onSortbyAdd()>Address</th>
+                    <th (click) = onSortbyCity()>City</th>
+                    <th (click) = onSortbyState()>State</th>
+                    <th>ZipCode</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let person of  addressBookData">
+                        <td>{{person.person_id}}</td>
+                        <td>{{person.name}}</td>
+                        <td>{{person.phone_no}}</td>
+                        <td>{{person.address}}</td>
+                        <td>{{person.city}}</td>
+                        <td>{{person.state}}</td>
+                        <td>{{person.zip_code}}</td>
+                        <td>
+                            <img src="../assets/icons/delete-black-18dp.svg" alt="delete" id="undefined"  (click) = "deletePerson(person.person_id)">
+                            <img src="../assets/icons/create-black-18dp.svg" alt="update" id="undefined" (click) = "updatePerson(person.person_id)">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+  </body>
