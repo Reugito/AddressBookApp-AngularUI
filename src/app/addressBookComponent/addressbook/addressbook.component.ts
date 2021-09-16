@@ -13,8 +13,12 @@ export class AddressbookComponent implements OnInit {
   addressBookData!: AddressBookData[];
   constructor(private addressBookService: AddressbookService, private router:Router){ }
 
-
+  jwt:any
   ngOnInit(): void {
+    this.jwt = localStorage.getItem("jwtToken")
+    if(this.jwt == null){
+      this.router.navigate(['login'])
+    }
     this.reloadData();
   }
 

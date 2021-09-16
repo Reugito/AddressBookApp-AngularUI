@@ -1,0 +1,77 @@
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 1px;
+  }
+
+  .example-container{
+    margin-left: 12%;
+  }
+
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+  .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
+    font-size: 150%;
+    line-height: 0.9px;
+}
+
+.mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 450px;
+}
+
+.container{
+  margin-top: 1%;
+  width: 40%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+
+.header {
+  padding: 10px 0;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+}
+
+.addressBook-text {
+  text-align: left;
+  font: normal normal bold 22px/25px Montserrat;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  opacity: 1;
+  color: #008cff;
+}
+
+.addressBook-book {
+  color: #42515f;
+}

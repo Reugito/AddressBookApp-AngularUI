@@ -7,7 +7,7 @@ import { AddressBookData } from '../address-book-data';
 })
 export class AddressbookService {
 
-  private url = "http://localhost:8080/addressbook";
+  private url = "http://localhost:8080";
   constructor(private http: HttpClient) { }
 
   getAddressBookData(): Observable<AddressBookData[]>{
@@ -15,23 +15,23 @@ export class AddressbookService {
   }
 
   getPerson(id: number): Observable<any> {
-    return this.http.get(`http://localhost:8080/addressbook/details/${id}`);
+    return this.http.get(`http://localhost:8080/details/${id}`);
   }
 
   getPersonByName(name: String): Observable<any> {
-    return this.http.get(`http://localhost:8080/addressbook/name/${name}`);
+    return this.http.get(`http://localhost:8080/name/${name}`);
   }
 
   sortPerson(name: String): Observable<any> {
-    return this.http.get(`http://localhost:8080/addressbook/sort/${name}`);
+    return this.http.get(`http://localhost:8080/sort/${name}`);
   }
 
   createPerson(employee: Object): Observable<Object> {
-    return this.http.post(`http://localhost:8080/addressbook/add`, employee);
+    return this.http.post(`http://localhost:8080/add`, employee);
   }
 
   updatePerson(id: number, value: any): Observable<Object> {
-    return this.http.put(`http://localhost:8080/addressbook/update/${id}`, value);
+    return this.http.put(`http://localhost:8080/update/${id}`, value);
   }
 
   deletePerson(id: number): Observable<any> {

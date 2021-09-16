@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserAuthServiceService } from 'src/app/addressBookService/user-auth-service.service';
 @Component({
   selector: 'app-person-login',
   templateUrl: './person-login.component.html',
@@ -7,24 +8,27 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class PersonLoginComponent implements OnInit {
   
-  constructor() { }
+  formGroup!: FormGroup;
+  constructor(private authService: UserAuthServiceService ) {}
   ngOnInit(): void {
+    this.initForm();
   }
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password= new FormControl();
-  hide = true;
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-    
+  initForm(){
+    this.formGroup = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+    })
   }
-  
+
   onSubmit(){
-    console.log("hii")
-    console.log("email",this.email.value, this.password.value)
+    console.log("email",this.formGroup.value, this.formGroup.valid);
+    if(this.formGroup.valid){
+      this.authService.login(this.formGroup.value).subscribe(result =>{
+        localStorage.setItem("jwtToken", result.jwt);
+        console.log(" person ", result.jwt)
+      }
+      )
+    }
   }
-
 }
